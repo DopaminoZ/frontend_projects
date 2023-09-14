@@ -1,0 +1,32 @@
+@font-face{
+    src: url(../fonts/BebasNeue-Regular.ttf);
+    font-family: Bebas;
+}
+header{
+    border:3px;
+    padding: 23px;
+    background-color: #000120;
+    font-family: Bebas;
+    font-size: 44px;
+    border-style: ridge;
+    text-shadow: 3px 3px 6px white;
+}
+#logo{
+    border:1px white solid;
+    box-shadow: 0px 8px 9px rgb(0, 0, 0);
+}
+main{
+    background-image: url(../images/background-main.jpeg);
+    height: 500px;
+    width: auto;
+    color: black;
+    font-family: Bebas;}
+footer{
+    background-color: #000120;
+    color: aliceblue;
+    font-family: Bebas;
+}
+#form_container{
+    border: 5px black dashed;
+    display:inline-block;
+}
