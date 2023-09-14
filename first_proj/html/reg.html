@@ -5,44 +5,20 @@
     <title>Registration</title>
 </head>
 <body>
-    <!-- <script type="text/javascript">
-        $(document).ready(function() {
-            $("#btn").click(function(e){
-                var jsonData={};
-                var formData = $("#myform").serializeArray();
-                $.each(formData,function(){
-                    if(jsonData[this.username]){
-                        if(!jsonData[this.username].push){
-                            jsonData[this.username] = [jsonData[this.username]];
-                        }
-                        jsonData[this.username].push(this.value);
-                    } else{
-                        jsonData[this.username] = this.value;
-                    }
-                });
-                console.log(jsonData);
-                $.ajax({
-                    url : "action.php"
-                    type: "POST"
-                    data: jsonData,
-                });
-                e.preventDefault();
-            });
-        });
-    </script> -->
     <header>
         <div>
         <img src="../images/logo.png" id="logo" alt="Company logo" width="120" align="left">
-    <a href="home.html">Home</a>
-    <a href="home.html">About us</a>
-    <a href="home.html">FAQ</a>
-    <a href="home.html">Store</a>
-    <a href="home.html">
+    <a href="home.html"
+    class="nav">Home</a>
+    <a href="home.html" class="nav">About us</a>
+    <a href="home.html" class="nav">FAQ</a>
+    <a href="home.html" class="nav">Store</a>
+    <a href="home.html" >
     <img src="../images/cart.jpg" alt="your cart" align="right" width="70">
     </a>
-    <a href="home.html">Wishlist</a>
-    <a href="home.html">Login</a>
-    <a href="reg.html">Register</a>
+    <a href="home.html" class="nav">Wishlist</a>
+    <a href="home.html" class="nav">Login</a>
+    <a href="reg.html" class="nav">Register</a>
     </div>
     </header>
     <main>
@@ -50,7 +26,7 @@
     <h1>Registration Form</h1>
     <div class="containerz" id ="form_container">
         <form action="#" method="post" id="reg_form">
-            <label for="display">Display name: </label>
+            <label for="display">Your name: </label>
             <input id="display" type="letters" minlength="3" maxlength="15"><br>
             <label for="username">Username: </label>
             <input id="username" type="text" minlength="3" maxlength="15" required><br>
@@ -68,13 +44,13 @@
                 <option value="5borsa3id">Port Said</option>
             </select>
             <br>
-            <label for="gender" >Gender: </label><br>
+            <label for="gender" >Gender -</label>
             <label for="male">Male</label>
             <input id="male" type="radio" value="Male" name="gender" required>
             <label for="female">Female</label>
             <input id="female" type="radio" value="Female" name="gender"><br>
-            <input type="submit" name="btn">
-            <input type="reset">
+            <input type="submit" class="buttonz">
+            <input type="reset" class="buttonz">
         </form>
     </div>
 </main>
