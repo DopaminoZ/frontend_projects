@@ -6,7 +6,6 @@
 </head>
 <body>
     <header>
-    
         <img src="../images/logo.png" id="logo" alt="Company logo" width="120" >
         <nav id="navbar">
         <div id="nvbar">
@@ -24,8 +23,7 @@
         <a href="home.html" >
             <img id="cart" src="../images/cart.jpg" alt="your cart" width="70">
         </a>
-        
-        </header>
+    </header>
     <main style="flex-direction: column;">
     <h1>Registration Form</h1>
     <div class="containerz" id ="form_container">
@@ -39,7 +37,7 @@
             <label for="email">Email: </label>
             <input id="email" type="email"><br>
             <label for="phone">Phone number: </label>
-            <input type="tel" pattern="[+201]{4}[0-2]{1}[0-9]{8}" placeholder="+201XXXXXXXXX" required><br>
+            <input type="tel" pattern="[+201]{4}[0-2,5]{1}[0-9]{8}" placeholder="+201XXXXXXXXX" required><br>
             <label for="prov">Province: </label>
             <select id="prov">
                 <option value="alex">Al Askandaryah</option>
@@ -61,9 +59,9 @@
         const title=document.getElementById(prov);
         console.log(title); 
         </script>
-</main>
+    </main>
     <footer>
-        <p>&copy all licenses belong to phone store ~ 2023</p>
         <a href="#navbar">🔝</a>
+        <p>&copy all licenses belong to phone store ~ 2023</p>
     </footer>
 </body>

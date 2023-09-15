@@ -4,9 +4,10 @@
 }
 header{
     display: flex;
+    flex-flow: wrap;
     align-items: center;
     justify-content: space-between;
-    height: 120px;
+    height: max-content;
     border:px solid rgb(255, 0, 0);
     background-color: #000120;
     font-family: Bebas;
@@ -19,7 +20,7 @@ header{
 }
 #logbar{
     display: flex;
-    column-gap: 3.3em;
+    column-gap: 3.35em;
     font-size: 32px;
 }
 #logo{
@@ -63,6 +64,7 @@ footer a{
 }
 #reg_form label{
     font-size: 1.2em;
+    
 
 }
 #reg_form input{
@@ -75,4 +77,3 @@ footer a{
     border-radius: 1em;
     box-shadow:3px 3px 1px #000120;
 }
-
