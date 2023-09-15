@@ -19,7 +19,7 @@ header{
 }
 #logbar{
     display: flex;
-    column-gap: 11dvh;
+    column-gap: 3.3em;
     font-size: 32px;
 }
 #logo{
@@ -57,6 +57,9 @@ footer{
     color: aliceblue;
     font-family: Bebas;
     padding-top: 1em;
+}
+footer a{
+    text-decoration: none;
 }
 #reg_form label{
     font-size: 1.2em;
