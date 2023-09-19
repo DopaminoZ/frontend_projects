@@ -8,7 +8,6 @@ header{
     align-items: center;
     justify-content: space-between;
     height: max-content;
-    border:px solid rgb(255, 0, 0);
     background-color: #000120;
     font-family: Bebas;
     border-style: ridge;
@@ -64,11 +63,33 @@ footer a{
     text-decoration: none;
 }
 #reg_form label{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 1.2em;
+    margin-left:1.2em;
+    
 }
 #reg_form input{
     border-radius: 2em;
     margin-top: 2em;
+    margin-right: 3em;
+}
+#log_form label{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.2em;
+    margin-left:1.2em;
+    
+}
+#log_form input{
+    border-radius: 2em;
+    margin-top: 2em;
+    margin-right: 3em;
+}
+#form_container{
+    background-color: rgb(173, 172, 172);
+    border: 2px solid black;
+    margin-left: 17em;
+    width: 40%;
+    
 }
 .buttonz:hover{
     background-color: rgb(67, 78, 78);
@@ -76,6 +97,8 @@ footer a{
 .buttonz{
     border-radius: 1em;
     box-shadow:3px 3px 1px #000120;
+    margin-left: 2em;
+    margin-bottom: 2em;
 }
 #faq{
     margin-top: 2em;
@@ -112,4 +135,7 @@ footer a{
 }
 #last{
     margin-bottom: 2em;
+}
+#center{
+    margin-left:38%;
 }
