@@ -24,7 +24,7 @@ body{
 }
 #text{
 
-    padding: 40px;
+    padding: 2em;
     border-radius: 20px;
     background-color: white;
     border: 5px black solid;
@@ -51,10 +51,11 @@ body{
     justify-content: space-between;
 }
 #hrs , #mins , #secs{
-    width:14%;
+    width:1.5em;
+    margin-left:2.5%;
     font-size: 4rem;
     border: none;
-    margin:0;
+    
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
