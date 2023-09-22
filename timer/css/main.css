@@ -54,7 +54,7 @@ body{
     width:14%;
     font-size: 4rem;
     border: none;
-    margin: 0;
+    margin:0;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -67,9 +67,15 @@ input::-webkit-inner-spin-button {
     justify-content: space-evenly;
 }
 #buttons button{
-    width:50%;
+    width:30%;
+    height: 3rem;
+    box-shadow: 5px 5px 15px;
     background-color: gray;
 }
 #buttons button:hover{
     background-color: rgb(194, 194, 194);
+}
+
+#buttons i{
+    font-size:1.7rem;
 }
