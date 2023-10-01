@@ -28,19 +28,30 @@
     <main style="flex-direction: column;">
     <div class="containerz" id ="form_container">
         <form action="#" method="post" id="log_form">
-            <h3 style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; margin-left:44%; color:white;">Login</h3>
+            <h3 style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; margin-left:44%; color:#000120;">Login</h3>
             <label for="username">Username: </label>
             <input id="username" type="text" minlength="3" maxlength="15" required><br>
             <label for="pass">Password: </label>
             <input id="pass" type="password" minlength="3" maxlength="15" required><br>
-            <input type="submit" class="buttonz">
+            <button class="buttonz" onclick="login()">Login</button>
             <input type="reset" class="buttonz">
         </form>
-        <div><hr><h4 style="margin-left: 13.5em; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: aliceblue;">or</h4>
+        <div><hr><h4 style="margin-left: 13.5em; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: #000120;">or</h4><hr>
+        <br>
         <div  id="center" class="g-signin2" data-onsuccess="onSignIn"></div>
         <div style="margin-left:32%; margin-bottom: 3em;" class="fb-login-button" data-width="" data-size="" data-button-type="" data-layout="" data-auto-logout-link="false" data-use-continue-as="false"></div>        </div>
 
     </div>
+    
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+      </script>
+      <script src="../scripts/main.js"></script>
     <script>
         const title=document.getElementById(prov);
         console.log(title); 

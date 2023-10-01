@@ -85,7 +85,7 @@ footer a{
     margin-right: 3em;
 }
 #form_container{
-    background-color: rgb(173, 172, 172);
+    background-color: rgba(154, 150, 150, 0.369);
     border: 2px solid black;
     margin-left: 17em;
     width: 40%;
@@ -96,9 +96,11 @@ footer a{
 }
 .buttonz{
     border-radius: 1em;
-    box-shadow:3px 3px 1px #000120;
+    background-color: #000120;
+    box-shadow:3px 3px 1px black;
     margin-left: 2em;
     margin-bottom: 2em;
+    color: white;
 }
 #faq{
     margin-top: 2em;
@@ -124,7 +126,7 @@ footer a{
     background-color: #ccc;
   }
 .answer {
-    padding: 0 18px;
+    padding: 0px 18px;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
