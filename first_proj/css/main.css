@@ -149,4 +149,8 @@ footer a{
 #currentuser{
     color: white;
     padding-right:3vh;
+    font-size: 3vh;
+}
+#cartsignout{
+    display: flex;
 }

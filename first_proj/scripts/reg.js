@@ -28,6 +28,7 @@ const Userprov = document.querySelector("#userprov")
 const Usertel = document.querySelector("#usertel")
 const Usergender = document.querySelector("#usergender")
 const finish = document.querySelector("#finish")
+const errorzx = document.querySelector("#errorzx")
 const form = document.querySelector("#reg_container")
 const curruser = document.querySelector("#currentuser")
 const database_ref = ref(database);
@@ -44,7 +45,6 @@ const userSignup = async => {
 	.then((userCredential) => {
 		const user = userCredential.user;
 		console.log(user);
-		alert("Account has been created!");
     
 
 			// Create User data
@@ -58,27 +58,29 @@ const userSignup = async => {
                 gender: signupgender,
 				last_login: Date.now()
 			};
-
+            
 			// Push to Firebase Database
             set((child(database_ref, ("users/" + user.uid))), user_data);
-	})
+            user.sendEmailVerification();
+        })
     .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode + errorMessage)
+        errorzx.innerText = errorCode.split("/").pop(); 
     
     })
-    sendEmailVerification(user, )
+
     onAuthStateChanged();
 }
 
 
 const userSignout = async => {
 	signOut(auth);
-    alert("You've signed out of your account!")
 }
 const signupButton = document.querySelector("#regbut");
 const signoutButton = document.querySelector("#signout");
+const clearbutton = document.querySelector("#reset");
 
 const checkAuthState = async() => {
     onAuthStateChanged(auth, user => {
@@ -115,8 +117,16 @@ function redirect(){
     setTimeout(function() {window.location.replace("home.html")}, 5000);
     
 }
+function clear(){
+    Useremail.value=""
+    Userpassword.value=""
+    Username.value=""
+    Userdisplay.value=""
+    Usertel.value=""
+}
 signoutButton.style.display = 'none'
 finish.style.display='none'
+clearbutton.addEventListener("click", clear);
 signupButton.addEventListener("click", userSignup);
 signoutButton.addEventListener("click", userSignout);
 checkAuthState()

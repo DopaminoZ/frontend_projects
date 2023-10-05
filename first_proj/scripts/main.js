@@ -21,7 +21,36 @@ const database = getDatabase(app);
 
 
 
+const checkAuthState = async() => {
+  onAuthStateChanged(auth, user => {
+      if(user){
+          form.style.display = 'none';
+          signoutButton.style.display = 'block';
+          get(child(database_ref, `users/${user.uid}`)).then((snapshot) => {
+              if (snapshot.exists()) {
+                  let gender = snapshot.val().gender;
+                  if(gender == "male"){
+                  curruser.innerText = `Welcome Mr. ${snapshot.val().display}!` 
+                  }else{
+                  curruser.innerText = `Welcome Ms. ${snapshot.val().display}!` 
+                  }
+              } else {
+                console.log("No data available");
+              }
+              }).catch((error) => {
+              console.error(error);
+            });
+          
+      }
+      else{
+          form.style.display = 'flex';
+          signoutButton.style.display = 'none';
+          curruser.innerText = `Welcome Guest!` 
+      }
 
+  })
+}
+checkAuthState()
 
 var acc = document.getElementsByClassName("accordion");
 var i;
@@ -56,41 +85,11 @@ const database_ref = ref(database);
 
 const userSignout = async => {
 	signOut(auth);
-    alert("You've signed out of your account!")
 }
 
 const signoutButton = document.querySelector("#signout");
 
-const checkAuthState = async() => {
-    onAuthStateChanged(auth, user => {
-        if(user){
-            form.style.display = 'none';
-            signoutButton.style.display = 'block';
-            get(child(database_ref, `users/${user.uid}`)).then((snapshot) => {
-                if (snapshot.exists()) {
-                    let gender = snapshot.val().gender;
-                    if(gender == "male"){
-                    curruser.innerText = `Welcome Mr. ${snapshot.val().display}!` 
-                    }else{
-                    curruser.innerText = `Welcome Ms. ${snapshot.val().display}!` 
-                    }
-                } else {
-                  console.log("No data available");
-                }
-                }).catch((error) => {
-                console.error(error);
-              });
-            
-        }
-        else{
-            form.style.display = 'flex';
-            signoutButton.style.display = 'none';
-            curruser.innerText = `Welcome Guest!` 
-        }
-
-    })
-}
 
 signoutButton.style.display = 'none'
 signoutButton.addEventListener("click", userSignout);
-checkAuthState()
+

@@ -30,6 +30,7 @@ const Userprov = document.querySelector("#userprov")
 const Usertel = document.querySelector("#usertel")
 const Usergender = document.querySelector("#usergender")
 const form = document.querySelector("#form_container")
+const errorzx = document.querySelector("#errorzx")
 const finish = document.querySelector("#finish")
 const curruser = document.querySelector("#currentuser")
 const database_ref = ref(database);
@@ -41,23 +42,23 @@ const userSignin = async => {
 	.then((userCredential) => {
 		const user = userCredential.user;
         if(user)
-		alert("You have signed in successfully!");
         checkAuthState();
 	})
     .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode + errorMessage);
+        errorzx.innerText = errorCode.split("/").pop();
     
     })
 }
 const userSignout = async => {
 	signOut(auth);
-    alert("You've signed out of your account!")
 }
-const signupButton = document.querySelector("#regbut");
+
 const signinButton = document.querySelector("#logbut");
 const signoutButton = document.querySelector("#signout");
+const clearbutton = document.querySelector("#reset");
 
 const checkAuthState = async() => {
     onAuthStateChanged(auth, user => {
@@ -94,8 +95,14 @@ function redirect(){
     setTimeout(function() {window.location.replace("home.html")}, 5000);
     
 }
+function clear(){
+    Useremail.value=""
+    Userpassword.value=""
+
+}
 signoutButton.style.display = 'none'
 finish.style.display='none'
+clearbutton.addEventListener("click", clear);
 signinButton.addEventListener("click", userSignin);
 signoutButton.addEventListener("click", userSignout);
 checkAuthState()
