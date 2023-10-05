@@ -22,27 +22,6 @@ const database = getDatabase(app);
 
 
 
-
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-//Accordion Script
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight) {
-        panel.style.maxHeight = null;
-      } else {
-        panel.style.maxHeight = panel.scrollHeight+"px";
-    } 
-  });
-}
-
-
-
-
-
 const Useremail = document.querySelector("#useremail")
 const Userpassword = document.querySelector("#userpassword")
 const Username = document.querySelector("#username")
@@ -50,15 +29,34 @@ const Userdisplay = document.querySelector("#userdisplay")
 const Userprov = document.querySelector("#userprov")
 const Usertel = document.querySelector("#usertel")
 const Usergender = document.querySelector("#usergender")
-const form = document.querySelector("#logbar")
+const form = document.querySelector("#form_container")
+const finish = document.querySelector("#finish")
 const curruser = document.querySelector("#currentuser")
 const database_ref = ref(database);
 
+const userSignin = async => {
+	const signinemail = Useremail.value;
+	const signinpass = Userpassword.value;
+	signInWithEmailAndPassword(auth, signinemail, signinpass)
+	.then((userCredential) => {
+		const user = userCredential.user;
+        if(user)
+		alert("You have signed in successfully!");
+        checkAuthState();
+	})
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode + errorMessage);
+    
+    })
+}
 const userSignout = async => {
 	signOut(auth);
     alert("You've signed out of your account!")
 }
-
+const signupButton = document.querySelector("#regbut");
+const signinButton = document.querySelector("#logbut");
 const signoutButton = document.querySelector("#signout");
 
 const checkAuthState = async() => {
@@ -66,6 +64,7 @@ const checkAuthState = async() => {
         if(user){
             form.style.display = 'none';
             signoutButton.style.display = 'block';
+            finish.style.display='flex'
             get(child(database_ref, `users/${user.uid}`)).then((snapshot) => {
                 if (snapshot.exists()) {
                     let gender = snapshot.val().gender;
@@ -80,17 +79,23 @@ const checkAuthState = async() => {
                 }).catch((error) => {
                 console.error(error);
               });
-            
+              redirect();
         }
         else{
-            form.style.display = 'flex';
+            form.style.display = 'block';
+            finish.style.display='none'
             signoutButton.style.display = 'none';
             curruser.innerText = `Welcome Guest!` 
         }
 
     })
 }
-
+function redirect(){
+    setTimeout(function() {window.location.replace("home.html")}, 5000);
+    
+}
 signoutButton.style.display = 'none'
+finish.style.display='none'
+signinButton.addEventListener("click", userSignin);
 signoutButton.addEventListener("click", userSignout);
 checkAuthState()

@@ -19,56 +19,57 @@
             <a href="#navbar">Register</a>
             </div>
         </nav>
+        <div style="flex-direction: column">
+            <button id="signout">Sign Out</button>
         <a href="home.html" >
             <img id="cart" src="../images/cart.jpg" alt="your cart" width="70">
         </a>
+        <p id="currentuser">Current user: Guest</p> 
+        </div>
     </header>
     <main style="flex-direction: column;">
-    <h1>Registration Form</h1>
-    <div class="containerz" id ="form_container">
-        <form action="#" method="post" id="reg_form">
-            <label for="display">Your name: </label>
-            <input id="display" type="letters" minlength="3" maxlength="15"><br>
-            <label for="username">Username: </label>
-            <input id="username" type="text" minlength="3" maxlength="15" required><br>
-            <label for="pass">Password: </label>
-            <input id="pass" type="password" minlength="3" maxlength="15" required><br>
-            <label for="email">Email: </label>
-            <input id="email" type="email"><br>
-            <label for="phone">Phone number: </label>
-            <input type="tel" pattern="[+201]{4}[0-2,5]{1}[0-9]{8}" placeholder="+201XXXXXXXXX" required><br>
-            <label for="prov">Province: </label>
-            <select id="prov">
-                <option value="alex">Al Askandaryah</option>
-                <option value="cairo">Al Qahirah</option>
-                <option value="domiat">Damietta</option>
-                <option value="5borsa3id">Port Said</option>
-            </select>
-            <br>
-            <label for="gender" >Gender -</label>
-            <label for="male">Male</label>
-            <input id="male" type="radio" value="Male" name="gender" required class="radio">
-            <label for="female">Female</label>
-            <input id="female" type="radio" value="Female" name="gender" class="radio"><br>
-            <button class="buttonz" onclick="register()">Register</button>
-            <input type="reset" class="buttonz"><br>
-            <label>If you have an account already click <a href="login.html">here</a> to log in...   </label>
-        </form>
+        <div id="reg_container">
+    <h1 id="regh1">Registration Form</h1>
+<div id="reg_form">
+    <input id="userdisplay" type="letters" minlength="3" maxlength="15" placeholder="Display Name"><br>
+    <input id="username" type="text" minlength="3" maxlength="15" required placeholder="Username"><br>
+    <input id="userpassword" type="password" minlength="3" maxlength="15" required placeholder="Password"><br>
+    <input id="useremail" type="email" placeholder="example@email.com"><br>
+    <input id="usertel" type="tel" pattern="[+201]{4}[0-2,5]{1}[0-9]{8}" placeholder="+201XXXXXXXXX" required><br>
+    <div class="regbox">
+    <label for="userprov">Province :</label>
+    <select id="userprov">
+        <option value="alex">Al Askandaryah</option>
+        <option value="cairo">Al Qahirah</option>
+        <option value="domiat">Damietta</option>
+        <option value="borsa3id">Port Said</option>
+    </select>
     </div>
-	<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-
-	<!-- TODO: Add SDKs for Firebase products that you want to use
-         https://firebase.google.com/docs/web/setup#available-libraries -->
-	<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
-      <script src="../scripts/main.js"></script>
-    <script>
-        const title=document.getElementById(prov);
-        console.log(title); 
-        </script>
-    </main>
-    <footer>
-        <a href="#navbar">🔝</a>
-        <p>&copy all licenses belong to phone store ~ 2023</p>
-    </footer>
+    <br>
+    <div class="regbox">
+    <label for="usergender">Gender :</label>
+    <select id="usergender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+    <br>
+    <br>
+    <button id="regbut" class="buttonz" >Sign Up</button>
+    <button id="reset" class="buttonz">Reset</button><br>
+    <label>If you have an account already click <a href="login.html">here</a> to log in...</label> <br>
+</div>
+</div>
+</div>
+<div id="finish">
+    <label>Registration is successful, click <a href="home.html">here</a> to get redirected to home page or wait it will happen shortly.</label>
+</div>
+</main>
+<script src="../scripts/main.js" type="module"></script>
+<script src="../scripts/reg.js" type="module"></script>
+<footer>
+    <a href="#navbar">🔝</a>
+    <p>&copy all licenses belong to phone store ~ 2023</p>
+</footer>
 </body>
+</html>
+
