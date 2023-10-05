@@ -12,7 +12,6 @@ const firebaseConfig = {
   databaseURL: "https://testing-login-reg-default-rtdb.europe-west1.firebasedatabase.app"
 };
 // Your web app's Firebase configuration
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig); 
 // Initialize variables
