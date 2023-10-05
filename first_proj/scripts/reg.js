@@ -1,6 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js'
 import { getDatabase , ref, set, child, get } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js'
-import { getAuth , createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js'
+import { getAuth , createUserWithEmailAndPassword, sendEmailVerification, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js'
 const firebaseConfig = {
   apiKey: "AIzaSyAXNtGnuPpUCZHwiohemWCgenHsWhl8SUk",
   authDomain: "testing-login-reg.firebaseapp.com",
@@ -69,8 +69,10 @@ const userSignup = async => {
         console.log(errorCode + errorMessage)
     
     })
+    sendEmailVerification(user, )
     onAuthStateChanged();
 }
+
 
 const userSignout = async => {
 	signOut(auth);
