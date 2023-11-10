@@ -61,7 +61,7 @@ const userSignup = async => {
             
 			// Push to Firebase Database
             set((child(database_ref, ("users/" + user.uid))), user_data);
-            user.sendEmailVerification();
+            //user.sendEmailVerification();
         })
     .catch((error) => {
         const errorCode = error.code;
